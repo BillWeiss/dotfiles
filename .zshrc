@@ -61,13 +61,7 @@ case $(uname) in
     ;;
 esac
 
-addpath /usr/local/bin $HOME/bin
-
-#if which ruby >/dev/null && which gem >/dev/null; then
-#  addpath "$(ruby -rubygems -e 'puts Gem.user_dir')"
-#fi
-
-addpath ~/.local/bin/
+addpath /usr/local/bin ~/bin ~/.local/bin/
 
 export HISTFILE=~/.zsh_history
 export HISTSIZE=1000
@@ -88,6 +82,4 @@ set -o vi
 
 export LANG=en_US.utf-8
 
-#[[ -e $HOME/.rvm/bin ]] && export PATH=$PATH:$HOME/.rvm/bin
-#[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
