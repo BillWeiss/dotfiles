@@ -55,6 +55,7 @@ case $(uname) in
     if [[ "$TERM" = "screen" ]] ; then
       export TERM=xterm-256color
     fi
+    alias info=pinfo
     ;;
   *)
     # don't do anything, we've already complained above about an unsupported OS
@@ -68,8 +69,9 @@ export HISTSIZE=1000
 export SAVEHIST=2000
 export VISUAL=$EDITOR
 export GIT_EDITOR=$EDITOR
+export LANG=en_US.utf-8
 setopt APPEND_HISTORY
-setopt NOPROMPTCR
+setopt nopromptcr
 
 alias cp='cp -i'
 alias mv='mv -i'
@@ -77,10 +79,6 @@ alias rm='rm -i'
 alias vi="vim"
 alias today="date +%Y%m%d"
 alias screen='screen -U'
-alias info=pinfo
 
 set -o vi
-
-export LANG=en_US.utf-8
-
 
