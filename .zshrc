@@ -3,13 +3,10 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="gentoo"
 COMPLETION_WAITING_DOTS="true"
 DISABLE_UPDATE_PROMPT=true
-EDITOR=vim
-VISUAL=$EDITOR
-GIT_EDITOR=$EDITOR
 TZ=America/Chicago
 plugins=(compleat gem git github python rvm ruby ssh-agent svn)
 
-# do some per-OS stuff
+# figure out which plugins to use, per-OS and distro
 case $(uname) in
   Darwin)
     plugins+=(brew osx)
@@ -40,7 +37,10 @@ addpath () {
   done
 }
 
-## more per-OS stuff
+## sane defaults in case per-OS settings don't match
+EDITOR=vim
+
+## per-OS settings
 case $(uname) in
   Darwin)
     export EDITOR='mvim -f -c "au VimLeave * !open -a iTerm"'
@@ -66,8 +66,9 @@ addpath /usr/local/bin ~/bin ~/.local/bin/
 export HISTFILE=~/.zsh_history
 export HISTSIZE=1000
 export SAVEHIST=2000
+export VISUAL=$EDITOR
+export GIT_EDITOR=$EDITOR
 setopt APPEND_HISTORY
-setopt EXTENDED_HISTORY
 setopt NOPROMPTCR
 
 alias cp='cp -i'
