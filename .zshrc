@@ -80,5 +80,3 @@ alias vi="vim"
 alias today="date +%Y%m%d"
 alias screen='screen -U'
 
-set -o vi
-
