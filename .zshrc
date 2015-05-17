@@ -49,6 +49,11 @@ case $(uname) in
     alias vim=mvim
     alias ll='ls -FalG'
     [[ -e /opt/boxen/env.sh ]] && source /opt/boxen/env.sh
+
+    # local Perl modules.  Ugh.
+    PERL_MB_OPT="--install_base \"/Users/bweiss/perl5\""; export PERL_MB_OPT;
+    PERL_MM_OPT="INSTALL_BASE=/Users/bweiss/perl5"; export PERL_MM_OPT;
+
     ;;
   Linux)
     alias ll='ls -Fal --color'
