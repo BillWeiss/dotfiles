@@ -58,7 +58,7 @@ case $(uname) in
   Linux)
     alias ll='ls -Fal --color'
     if [[ "$TERM" = "screen" ]] ; then
-      export TERM=xterm-256color
+      export TERM=screen-256color
     fi
     alias info=pinfo
     ;;
