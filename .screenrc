@@ -1,0 +1,5 @@
+startup_message off
+defutf8 on
+utf8 on on
+encoding UTF-8
+defscrollback 1024
