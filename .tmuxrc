@@ -1,0 +1,7 @@
+set-option -g status-utf8 on
+
+# make it screen-like
+set-option -g prefix C-a
+unbind-key C-b
+bind-key C-a last-window
+
