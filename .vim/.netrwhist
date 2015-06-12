@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/houdini/projects/billweiss.github.com/.git'
-let g:netrw_dirhist_2='/home/houdini/.mutt'
-let g:netrw_dirhist_3='/home/houdini/projects/twmirror'
-let g:netrw_dirhist_4='/home/houdini/old-server-puppet/modules/dnsserver/manifests/config'
-let g:netrw_dirhist_5='/home/houdini/old-server-puppet/modules/dnsserver/files/zones'
-let g:netrw_dirhist_6='/home/houdini/.gnupg/private-keys-v1.d'
