@@ -4,12 +4,12 @@ ZSH_THEME="gentoo"
 COMPLETION_WAITING_DOTS="true"
 DISABLE_UPDATE_PROMPT=true
 TZ=America/Chicago
-plugins=(compleat gem git github python rvm ruby ssh-agent svn)
+plugins=(compleat gem git github python ruby ssh-agent svn)
 
 # figure out which plugins to use, per-OS and distro
 case $(uname) in
   Darwin)
-    plugins+=(brew osx)
+    plugins+=(brew osx rbenv)
     ;;
   Linux)
     case $(cat /etc/os-release | egrep '^ID' | awk -F= '{print $2}') in
