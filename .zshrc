@@ -82,3 +82,7 @@ alias vi="vim"
 alias today="date +%Y%m%d"
 alias screen='screen -U'
 
+# this is to work around the family of oh-my-zsh issues that look like
+# https://github.com/robbyrussell/oh-my-zsh/pull/3866
+unset ag
+unalias ag
