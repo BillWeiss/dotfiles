@@ -88,4 +88,4 @@ unset ag
 unalias ag
 
 ## make rvm work
-[ -d ~/.rvm/ ] && addpath ~/.rvm/bin
+[[ -s ~/.rvm/scripts/rvm ]] && source ~/.rvm/scripts/rvm
