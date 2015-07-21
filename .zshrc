@@ -86,3 +86,6 @@ alias screen='screen -U'
 # https://github.com/robbyrussell/oh-my-zsh/pull/3866
 unset ag
 unalias ag
+
+## make rvm work
+[ -d ~/.rvm/ ] && addpath ~/.rvm/bin
