@@ -3,7 +3,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="gentoo"
 COMPLETION_WAITING_DOTS="true"
 DISABLE_UPDATE_PROMPT=true
-TZ=America/Chicago
+TZ=America/Portland
 plugins=(compleat gem git github python ruby rvm ssh-agent svn)
 
 # figure out which plugins to use, per-OS and distro
@@ -58,6 +58,11 @@ case $(uname) in
   Linux)
     alias ll='ls -Fal --color'
     alias info=pinfo
+
+    # this is to work around the family of oh-my-zsh issues that look like
+    # https://github.com/robbyrussell/oh-my-zsh/pull/3866
+    unset ag
+    unalias ag
     ;;
   *)
     # don't do anything, we've already complained above about an unsupported OS
@@ -81,11 +86,6 @@ alias rm='rm -i'
 alias vi="vim"
 alias today="date +%Y%m%d"
 alias screen='screen -U'
-
-# this is to work around the family of oh-my-zsh issues that look like
-# https://github.com/robbyrussell/oh-my-zsh/pull/3866
-unset ag
-unalias ag
 
 ## make rvm work
 [[ -s ~/.rvm/scripts/rvm ]] && source ~/.rvm/scripts/rvm
