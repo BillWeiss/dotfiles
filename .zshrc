@@ -89,3 +89,7 @@ alias screen='screen -U'
 
 ## make rvm work
 [[ -s ~/.rvm/scripts/rvm ]] && source ~/.rvm/scripts/rvm
+
+## local-only aliases
+
+[[ -s ~/.zshrc-local ]] && source ~/.zshrc-local
