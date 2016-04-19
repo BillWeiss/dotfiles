@@ -4,7 +4,7 @@ ZSH_THEME="gentoo"
 COMPLETION_WAITING_DOTS="true"
 DISABLE_UPDATE_PROMPT=true
 TZ=America/Portland
-plugins=(compleat gem git github python ruby rvm ssh-agent svn)
+plugins=(compleat gem git github python ruby rvm ssh-agent svn virtualenvwrapper)
 
 # figure out which plugins to use, per-OS and distro
 case $(uname) in
