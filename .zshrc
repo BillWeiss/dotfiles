@@ -4,12 +4,15 @@ ZSH_THEME="gentoo"
 COMPLETION_WAITING_DOTS="true"
 DISABLE_UPDATE_PROMPT=true
 TZ=America/Portland
-plugins=(compleat gem git github gpg-agent python ruby rvm ssh-agent svn virtualenvwrapper)
+plugins=(compleat gem git github python ruby rvm ssh-agent svn virtualenvwrapper)
 
 # figure out which plugins to use, per-OS and distro
 case $(uname) in
   Darwin)
-    plugins+=(brew osx rbenv)
+    plugins+=(brew osx rbenv gpg-agent)
+    # this horrific thing removes "ssh-agent" from the list.
+    # thanks http://stackoverflow.com/questions/3435355/remove-entry-from-array
+    plugins=("${(@)plugins:#ssh-agent}")
     ;;
   Linux)
     case $(cat /etc/os-release | egrep '^ID' | awk -F= '{print $2}') in
