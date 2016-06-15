@@ -97,3 +97,7 @@ alias screen='screen -U'
 ## local-only aliases
 
 [[ -s ~/.zshrc-local ]] && source ~/.zshrc-local
+
+## this sucks, but something about the system ssh-agent on my Mac and gpg-agent
+#  isn't playing well together.  Workaround so I can do work.
+[[ -s ~/.gnupg/gpg-agent.env ]] && source ~/.gnupg/gpg-agent.env
