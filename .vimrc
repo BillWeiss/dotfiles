@@ -1,6 +1,17 @@
 " .vimrc
 
-call pathogen#infect()
+" Turn on Vundle instead of the old pathogen
+filetype off
+set runtimepath+=~/.vim/bundle/vundle
+call vundle#rc()
+Bundle 'gmarik/vundle'
+
+" Install some Vundles
+Bundle 'editorconfig/editorconfig-vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'rodjek/vim-puppet'
+Bundle 'altercation/vim-colors-solarized'
+
 
 " use vim, not vi
 set nocp
