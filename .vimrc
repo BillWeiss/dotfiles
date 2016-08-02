@@ -3,15 +3,18 @@
 " Turn on Vundle instead of the old pathogen
 filetype off
 set runtimepath+=~/.vim/bundle/Vundle.vim
-call vundle#rc()
-Bundle 'gmarik/vundle'
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
 
 " Install some Vundles
-Bundle 'editorconfig/editorconfig-vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'rodjek/vim-puppet'
-Bundle 'altercation/vim-colors-solarized'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'rodjek/vim-puppet'
+Plugin 'altercation/vim-colors-solarized'
 
+" Don't do any Vundling after this
+call vundle#end()
+filetype plugin indent on
 
 " use vim, not vi
 set nocp
