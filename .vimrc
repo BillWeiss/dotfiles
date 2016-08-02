@@ -2,7 +2,7 @@
 
 " Turn on Vundle instead of the old pathogen
 filetype off
-set runtimepath+=~/.vim/bundle/vundle
+set runtimepath+=~/.vim/bundle/Vundle
 call vundle#rc()
 Bundle 'gmarik/vundle'
 
