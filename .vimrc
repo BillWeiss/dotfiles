@@ -11,6 +11,7 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'rodjek/vim-puppet'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'vim-airline/vim-airline'
 
 " Don't do any Vundling after this
 call vundle#end()
@@ -96,3 +97,6 @@ if has("autocmd")
 endif " has("autocmd")
 
 setlocal spell spelllang=en_us
+
+" Airline config
+set laststatus=2
