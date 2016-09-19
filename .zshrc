@@ -58,6 +58,8 @@ case $(uname) in
     PERL_MB_OPT="--install_base \"/Users/bweiss/perl5\""; export PERL_MB_OPT;
     PERL_MM_OPT="INSTALL_BASE=/Users/bweiss/perl5"; export PERL_MM_OPT;
 
+    # Homebrew nonsense
+    addpath /usr/local/sbin /usr/local/bin
     ;;
   Linux)
     alias ll='ls -Fal --color'
@@ -73,7 +75,7 @@ case $(uname) in
     ;;
 esac
 
-addpath /usr/local/bin ~/bin ~/.local/bin/
+addpath ~/bin ~/.local/sbin ~/.local/bin
 
 export HISTFILE=~/.zsh_history
 export HISTSIZE=1000
