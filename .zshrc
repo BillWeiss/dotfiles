@@ -32,13 +32,17 @@ case $(uname) in
     ;;
 esac
 
-source $ZSH/oh-my-zsh.sh
-
 addpath () {
   for pathentry in "$@" ; do
     [[ -e "${pathentry}" ]] && export PATH="${pathentry}:${PATH}"
   done
 }
+
+# do this before starting oh-my-zsh so it can find local binaries (like the
+# ones that virtualenvwrapper installs
+addpath ~/bin ~/.local/sbin ~/.local/bin
+
+source $ZSH/oh-my-zsh.sh
 
 ## sane defaults in case per-OS settings don't match
 EDITOR=vim
@@ -74,8 +78,6 @@ case $(uname) in
     # don't do anything, we've already complained above about an unsupported OS
     ;;
 esac
-
-addpath ~/bin ~/.local/sbin ~/.local/bin
 
 export HISTFILE=~/.zsh_history
 export HISTSIZE=1000
