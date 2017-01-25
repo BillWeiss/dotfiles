@@ -55,7 +55,7 @@ case $(uname) in
 
     alias vim=mvim
     alias ll='ls -FalG'
-    alias brewup='brew update && brew upgrade && brew linkapps macvim && brew cleanup'
+    alias brewup='brew update && brew upgrade && brew cleanup'
     [[ -e /opt/boxen/env.sh ]] && source /opt/boxen/env.sh
 
     # local Perl modules.  Ugh.
