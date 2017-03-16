@@ -64,6 +64,9 @@ case $(uname) in
 
     # Homebrew nonsense
     addpath /usr/local/sbin /usr/local/bin
+
+    # awless, if it exists
+    [[ -e /usr/local/share/zsh/site-functions/_awless ]] && source /usr/local/share/zsh/site-functions/_awless
     ;;
   Linux)
     alias ll='ls -Fal --color'
