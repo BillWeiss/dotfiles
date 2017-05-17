@@ -50,7 +50,7 @@ EDITOR=vim
 ## per-OS settings
 case $(uname) in
   Darwin)
-    export EDITOR='mvim -f -c "au VimLeave * !open -a iTerm"'
+    export EDITOR='mvim -f -c "au VimLeave * !open -a Terminal"'
     export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home/
 
     alias vim=mvim
