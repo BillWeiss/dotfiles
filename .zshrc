@@ -67,6 +67,9 @@ case $(uname) in
 
     # awless, if it exists
     [[ -e /usr/local/share/zsh/site-functions/_awless ]] && source /usr/local/share/zsh/site-functions/_awless
+
+    # locally installed pip packages
+    addpath ~/Library/Python/2.7/bin
     ;;
   Linux)
     alias ll='ls -Fal --color'
