@@ -65,9 +65,6 @@ case $(uname) in
     # Homebrew nonsense
     addpath /usr/local/sbin /usr/local/bin
 
-    # awless, if it exists
-    [[ -e /usr/local/share/zsh/site-functions/_awless ]] && source /usr/local/share/zsh/site-functions/_awless
-
     # locally installed pip packages
     addpath ~/Library/Python/2.7/bin
     ;;
