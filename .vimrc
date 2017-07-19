@@ -82,6 +82,7 @@ if has("autocmd")
   	\sts=2 ts=2 shiftwidth=2 expandtab
   autocmd FileType xhtml  set formatoptions=tcql comments=s:<,e:> 
   	\sts=2 ts=2 shiftwidth=2 expandtab
+  autocmd FileType sh     set makeprg=shellcheck\ -f\ gcc\ %
  augroup END
 
  au BufNewFile,BufRead /tmp/mutt* set syntax=mail filetype=mail 
