@@ -12,6 +12,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'rodjek/vim-puppet'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'w0rp/ale'
 
 " Don't do any Vundling after this
 call vundle#end()
@@ -101,3 +103,6 @@ setlocal spell spelllang=en_us
 
 " Airline config
 set laststatus=2
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
+let g:airline#extensions#ale#enabled = 1
