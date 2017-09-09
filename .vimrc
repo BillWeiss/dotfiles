@@ -41,7 +41,6 @@ set vb
 set shiftwidth=4
 set ruler
 set bs=2
-"colorscheme zenburn
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 colorscheme solarized
@@ -56,11 +55,6 @@ if version>=508
 endif
 
 if has("autocmd")
-
- " always generate (and use) view files
-" au BufWinLeave * mkview
-" au BufWinEnter * silent loadview
-
  " In text files, always limit the width of text to 74 characters
  autocmd BufRead *.txt set tw=74
 
