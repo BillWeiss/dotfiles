@@ -1,8 +1,8 @@
 ## set up oh-my-zsh
-ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="gentoo"
-COMPLETION_WAITING_DOTS="true"
-DISABLE_UPDATE_PROMPT=true
+export ZSH=$HOME/.oh-my-zsh
+export ZSH_THEME="gentoo"
+export COMPLETION_WAITING_DOTS="true"
+export DISABLE_UPDATE_PROMPT=true
 TZ=America/Portland
 plugins=(compleat gem git github python pyenv ruby rvm ssh-agent svn)
 
@@ -15,7 +15,7 @@ case $(uname) in
     plugins=("${(@)plugins:#ssh-agent}")
     ;;
   Linux)
-    case $(cat /etc/os-release | egrep '^ID' | awk -F= '{print $2}') in
+    case $( grep -E '^ID' /etc/os-release | awk -F= '{print $2}' ) in
       debian)
         plugins+=(debian)
         ;;
@@ -34,7 +34,7 @@ esac
 
 addpath () {
   for pathentry in "$@" ; do
-    [[ -e "${pathentry}" ]] && export PATH="${pathentry}:${PATH}"
+    [[ -s "${pathentry}" ]] && export PATH="${pathentry}:${PATH}"
   done
 }
 
@@ -110,7 +110,7 @@ alias screen='screen -U'
 [[ -s ~/.gnupg/gpg-agent.env ]] && source ~/.gnupg/gpg-agent.env
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/bV/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/bV/google-cloud-sdk/path.zsh.inc'; fi
+[[ -s ~/google-cloud-sdk/path.zsh.inc ]] && source ~/google-cloud-sdk/path.zsh.inc
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/bV/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/bV/google-cloud-sdk/completion.zsh.inc'; fi
+[[ -s ~/google-cloud-sdk/completion.zsh.inc ]] && source ~/google-cloud-sdk/completion.zsh.inc
