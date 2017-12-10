@@ -104,7 +104,6 @@ alias screen='screen -U'
 [[ -d $HOME/go ]] && export GOPATH=$HOME/go && addpath $HOME/go/bin
 
 ## local-only aliases
-
 [[ -s ~/.zshrc-local ]] && source ~/.zshrc-local
 
 ## this sucks, but something about the system ssh-agent on my Mac and gpg-agent
