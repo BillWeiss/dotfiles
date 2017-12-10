@@ -110,9 +110,3 @@ alias screen='screen -U'
 ## this sucks, but something about the system ssh-agent on my Mac and gpg-agent
 #  isn't playing well together.  Workaround so I can do work.
 [[ -s ~/.gnupg/gpg-agent.env ]] && source ~/.gnupg/gpg-agent.env
-
-# The next line updates PATH for the Google Cloud SDK.
-[[ -s ~/google-cloud-sdk/path.zsh.inc ]] && source ~/google-cloud-sdk/path.zsh.inc
-
-# The next line enables shell command completion for gcloud.
-[[ -s ~/google-cloud-sdk/completion.zsh.inc ]] && source ~/google-cloud-sdk/completion.zsh.inc
