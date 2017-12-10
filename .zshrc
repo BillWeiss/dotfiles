@@ -101,6 +101,7 @@ alias screen='screen -U'
 ## make rvm work
 [[ -s ~/.rvm/scripts/rvm ]] && source ~/.rvm/scripts/rvm
 
+## if there's a go dir, assume it's my GOPATH
 [[ -d $HOME/go ]] && export GOPATH=$HOME/go && addpath $HOME/go/bin
 
 ## local-only aliases
