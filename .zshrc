@@ -4,7 +4,7 @@ export ZSH_THEME="gentoo"
 export COMPLETION_WAITING_DOTS="true"
 export DISABLE_UPDATE_PROMPT=true
 TZ=America/Portland
-plugins=(compleat gem git github python pyenv ruby rvm ssh-agent svn)
+plugins=(compleat gem git github go python pyenv ruby rvm ssh-agent svn)
 
 # figure out which plugins to use, per-OS and distro
 case $(uname) in
@@ -100,6 +100,8 @@ alias screen='screen -U'
 
 ## make rvm work
 [[ -s ~/.rvm/scripts/rvm ]] && source ~/.rvm/scripts/rvm
+
+[[ -d $HOME/go ]] && export GOPATH=$HOME/go && addpath $HOME/go/bin
 
 ## local-only aliases
 
