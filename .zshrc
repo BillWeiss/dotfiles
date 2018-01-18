@@ -9,7 +9,7 @@ plugins=(compleat gem git github go python pyenv ruby rvm ssh-agent svn)
 # figure out which plugins to use, per-OS and distro
 case $(uname) in
   Darwin)
-    plugins+=(brew osx rbenv gpg-agent)
+    plugins+=(aws brew osx rbenv gpg-agent)
     # this horrific thing removes "ssh-agent" from the list.
     # thanks http://stackoverflow.com/questions/3435355/remove-entry-from-array
     plugins=("${(@)plugins:#ssh-agent}")
