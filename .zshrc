@@ -4,18 +4,34 @@ export ZSH_THEME="gentoo"
 export COMPLETION_WAITING_DOTS="true"
 export DISABLE_UPDATE_PROMPT=true
 TZ=America/Portland
-plugins=(compleat gem git github python pyenv ruby rvm svn)
+plugins=(
+    compleat
+    extract
+    gem
+    git
+    github
+    go
+    mosh
+    nmap
+    python
+    pyenv
+    ruby
+    rvm
+    svn)
 
 # figure out which plugins to use, per-OS and distro
 case $(uname) in
   Darwin)
-    plugins+=(brew osx rbenv gpg-agent)
+    plugins+=(aws brew osx rbenv gpg-agent)
     ;;
   Linux)
     plugins+=(ssh-agent)
-    case $( grep -E '^ID' /etc/os-release | awk -F= '{print $2}' ) in
+    case $( grep -E '^ID=' /etc/os-release | awk -F= '{print $2}' ) in
       debian)
         plugins+=(debian)
+        ;;
+      ubuntu)
+        plugins+=(ubuntu)
         ;;
       arch)
         plugins+=(archlinux)
@@ -94,16 +110,12 @@ alias screen='screen -U'
 ## make rvm work
 [[ -s ~/.rvm/scripts/rvm ]] && source ~/.rvm/scripts/rvm
 
-## local-only aliases
+## if there's a go dir, assume it's my GOPATH
+[[ -d $HOME/go ]] && export GOPATH=$HOME/go && addpath $HOME/go/bin
 
+## local-only aliases
 [[ -s ~/.zshrc-local ]] && source ~/.zshrc-local
 
 ## this sucks, but something about the system ssh-agent on my Mac and gpg-agent
 #  isn't playing well together.  Workaround so I can do work.
 [[ -s ~/.gnupg/gpg-agent.env ]] && source ~/.gnupg/gpg-agent.env
-
-# The next line updates PATH for the Google Cloud SDK.
-[[ -s ~/google-cloud-sdk/path.zsh.inc ]] && source ~/google-cloud-sdk/path.zsh.inc
-
-# The next line enables shell command completion for gcloud.
-[[ -s ~/google-cloud-sdk/completion.zsh.inc ]] && source ~/google-cloud-sdk/completion.zsh.inc
