@@ -6,10 +6,13 @@ export DISABLE_UPDATE_PROMPT=true
 TZ=America/Portland
 plugins=(
     compleat
+    extract
     gem
     git
     github
     go
+    mosh
+    nmap
     python
     pyenv
     ruby
