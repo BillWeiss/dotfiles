@@ -30,6 +30,9 @@ case $(uname) in
       debian)
         plugins+=(debian)
         ;;
+      ubuntu)
+        plugins+=(ubuntu)
+        ;;
       arch)
         plugins+=(archlinux)
         ;;
