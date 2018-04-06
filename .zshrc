@@ -26,7 +26,7 @@ case $(uname) in
     plugins=("${(@)plugins:#ssh-agent}")
     ;;
   Linux)
-    case $( grep -E '^ID' /etc/os-release | awk -F= '{print $2}' ) in
+    case $( grep -E '^ID=' /etc/os-release | awk -F= '{print $2}' ) in
       debian)
         plugins+=(debian)
         ;;
