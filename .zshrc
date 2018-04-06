@@ -4,17 +4,15 @@ export ZSH_THEME="gentoo"
 export COMPLETION_WAITING_DOTS="true"
 export DISABLE_UPDATE_PROMPT=true
 TZ=America/Portland
-plugins=(compleat gem git github python pyenv ruby rvm ssh-agent svn)
+plugins=(compleat gem git github python pyenv ruby rvm svn)
 
 # figure out which plugins to use, per-OS and distro
 case $(uname) in
   Darwin)
     plugins+=(brew osx rbenv gpg-agent)
-    # this horrific thing removes "ssh-agent" from the list.
-    # thanks http://stackoverflow.com/questions/3435355/remove-entry-from-array
-    plugins=("${(@)plugins:#ssh-agent}")
     ;;
   Linux)
+    plugins+=(ssh-agent)
     case $( grep -E '^ID' /etc/os-release | awk -F= '{print $2}' ) in
       debian)
         plugins+=(debian)
@@ -71,11 +69,6 @@ case $(uname) in
   Linux)
     alias ll='ls -Fal --color'
     alias info=pinfo
-
-    # this is to work around the family of oh-my-zsh issues that look like
-    # https://github.com/robbyrussell/oh-my-zsh/pull/3866
-    unset ag
-    unalias ag
     ;;
   *)
     # don't do anything, we've already complained above about an unsupported OS
