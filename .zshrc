@@ -17,12 +17,13 @@ plugins=(
     pyenv
     ruby
     rvm
-    svn)
+    tmux
+)
 
 # figure out which plugins to use, per-OS and distro
 case $(uname) in
   Darwin)
-    plugins+=(aws brew osx rbenv gpg-agent)
+    plugins+=(aws brew osx gpg-agent)
     ;;
   Linux)
     plugins+=(ssh-agent)
