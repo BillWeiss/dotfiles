@@ -3,7 +3,6 @@ export ZSH=$HOME/.oh-my-zsh
 export ZSH_THEME="gentoo"
 export COMPLETION_WAITING_DOTS="true"
 export DISABLE_UPDATE_PROMPT=true
-TZ=America/Portland
 plugins=(
     compleat
     extract
@@ -71,17 +70,10 @@ case $(uname) in
     alias vim=mvim
     alias ll='ls -FalG'
     alias brewup='brew update && brew upgrade && brew cleanup'
-    [[ -e /opt/boxen/env.sh ]] && source /opt/boxen/env.sh
-
-    # local Perl modules.  Ugh.
-    PERL_MB_OPT="--install_base \"/Users/bweiss/perl5\""; export PERL_MB_OPT;
-    PERL_MM_OPT="INSTALL_BASE=/Users/bweiss/perl5"; export PERL_MM_OPT;
 
     # Homebrew nonsense
     addpath /usr/local/sbin /usr/local/bin
 
-    # locally installed pip packages
-    addpath ~/Library/Python/2.7/bin
     ;;
   Linux)
     alias ll='ls -Fal --color'
