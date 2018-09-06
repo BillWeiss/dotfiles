@@ -22,7 +22,7 @@ plugins=(
 # figure out which plugins to use, per-OS and distro
 case $(uname) in
   Darwin)
-    plugins+=(aws brew osx gpg-agent)
+    plugins+=(aws osx gpg-agent)
     ;;
   Linux)
     plugins+=(ssh-agent)
