@@ -69,7 +69,7 @@ case $(uname) in
 
     alias vim=mvim
     alias ll='ls -FalG'
-    alias brewup='brew update && brew upgrade && brew cleanup'
+    alias brewup='brew update && brew upgrade && brew cask upgrade && brew cleanup'
 
     # Homebrew nonsense
     addpath /usr/local/sbin /usr/local/bin
