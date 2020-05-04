@@ -118,3 +118,9 @@ set laststatus=2
 let g:airline_theme='solarized'
 let g:airline_solarized_bg='dark'
 let g:airline#extensions#ale#enabled = 1
+
+" This tests for, as you might expect, if there's a GUI going
+if has("gui_running")
+    set gfn=Menlo-Regular:h15
+    set anti
+endif " has ("gui_running")
