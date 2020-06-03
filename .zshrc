@@ -5,17 +5,12 @@ export COMPLETION_WAITING_DOTS="true"
 export DISABLE_UPDATE_PROMPT=true
 plugins=(
     compleat
-    extract
-    gem
     git
     github
-    go
     mosh
     nmap
     python
     pyenv
-    ruby
-    rvm
     tmux
 )
 
