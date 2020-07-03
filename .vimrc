@@ -14,6 +14,8 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'w0rp/ale'
+Plugin 'hashivim/vim-terraform'
+Plugin 'vim-syntastic/syntastic'
 
 " Don't do any Vundling after this
 call vundle#end()
