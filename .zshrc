@@ -72,9 +72,6 @@ case $(uname) in
     # Homebrew nonsense
     addpath /usr/local/sbin /usr/local/bin
 
-    # Python local bins
-    addpath ~/Library/Python/*/bin
-
     ;;
   Linux)
     alias ll='ls -Fal --color'
