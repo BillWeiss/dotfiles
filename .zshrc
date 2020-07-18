@@ -22,7 +22,7 @@ case $(uname) in
   Linux)
     plugins+=(ssh-agent)
     case $( grep -E '^ID=' /etc/os-release | awk -F= '{print $2}' ) in
-      debian)
+      raspbian|debian)
         plugins+=(debian)
         ;;
       ubuntu)
