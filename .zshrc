@@ -64,7 +64,7 @@ case $(uname) in
 
     alias vim=mvim
     alias ll='ls -FalG'
-    alias brewup='brew update && brew upgrade && brew cask upgrade && brew cleanup'
+    alias brewup='brew update && brew upgrade && brew upgrade --cask && brew cleanup'
     function manpdf() {
         man -t $* | open -f -a /System/Applications/Preview.app
     }
