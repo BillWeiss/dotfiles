@@ -28,9 +28,6 @@ case $(uname) in
       ubuntu)
         plugins+=(ubuntu)
         ;;
-      arch)
-        plugins+=(archlinux)
-        ;;
       *)
         echo "I seem to be on an unexpected distro!"
         ;;
@@ -60,7 +57,6 @@ EDITOR=vim
 case $(uname) in
   Darwin)
     export EDITOR='mvim -f -c "au VimLeave * !open -a Terminal"'
-    export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home/
 
     alias vim=mvim
     alias ll='ls -FalG'
