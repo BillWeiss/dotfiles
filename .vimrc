@@ -126,3 +126,7 @@ if has("gui_running")
     set gfn=Menlo-Regular:h15
     set anti
 endif " has ("gui_running")
+
+" Do some terraform magic
+let g:terraform_align=1
+let g:terraform_fmt_on_save=1
