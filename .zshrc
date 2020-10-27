@@ -17,7 +17,7 @@ plugins=(
 # figure out which plugins to use, per-OS and distro
 case $(uname) in
   Darwin)
-    plugins+=(aws osx gpg-agent)
+    plugins+=(aws osx)
     ;;
   Linux)
     plugins+=(ssh-agent)
@@ -67,6 +67,17 @@ case $(uname) in
 
     # Homebrew nonsense
     addpath /usr/local/sbin /usr/local/bin
+
+    # make sure touch ID is on for sudo
+    # OS upgrades unset this sometimes
+    egrep -q '^auth *sufficient *pam_tid.so$' /etc/pam.d/sudo || \
+        echo "TouchID settings not in PAM for sudo\n" \
+             "Put this line into /etc/pam.d/sudo up top:\n" \
+             "auth       sufficient     pam_tid.so"
+
+    # yubikey-agent from Filo
+    [[ -S /usr/local/var/run/yubikey-agent.sock ]] && \
+        export SSH_AUTH_SOCK="/usr/local/var/run/yubikey-agent.sock"
 
     ;;
   Linux)
