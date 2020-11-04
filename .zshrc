@@ -70,10 +70,18 @@ case $(uname) in
 
     # make sure touch ID is on for sudo
     # OS upgrades unset this sometimes
-    egrep -q '^auth *sufficient *pam_tid.so$' /etc/pam.d/sudo || \
-        echo "TouchID settings not in PAM for sudo\n" \
-             "Put this line into /etc/pam.d/sudo up top:\n" \
-             "auth       sufficient     pam_tid.so"
+    # First, make sure we're on a touch ID machine. bioutil looks up how many
+    # enrolled fingerprints there are, make sure it's > 0
+    if [[ -x /usr/bin/bioutil ]] ; then
+        numPrints=$(/usr/bin/bioutil -c | grep User | awk '{print $3}')
+        if [[ "$numPrints" -gt 0 ]] ; then
+            egrep -q '^auth *sufficient *pam_tid.so$' /etc/pam.d/sudo || \
+                echo "TouchID settings not in PAM for sudo\n" \
+                     "Put this line into /etc/pam.d/sudo up top:\n" \
+                     "auth       sufficient     pam_tid.so" >&2
+        fi
+    fi
+
 
     # yubikey-agent from Filo
     [[ -S /usr/local/var/run/yubikey-agent.sock ]] && \
