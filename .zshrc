@@ -56,9 +56,14 @@ EDITOR=vim
 ## per-OS settings
 case $(uname) in
   Darwin)
-    export EDITOR='mvim -f -c "au VimLeave * !open -a Terminal"'
+    if command -v nvim > /de/null ; then
+        export EDITOR=nvim
+        alias vim=nvim
+    else
+        export EDITOR='mvim -f -c "au VimLeave * !open -a Terminal"'
+        alias vim=mvim
+    fi
 
-    alias vim=mvim
     alias ll='ls -FalG'
     alias brewup='brew update && brew upgrade && brew upgrade --cask && brew cleanup'
     function manpdf() {
@@ -89,6 +94,10 @@ case $(uname) in
 
     ;;
   Linux)
+    if command -v nvim > /de/null ; then
+        export EDITOR=nvim
+        alias vim=nvim
+    fi
     alias ll='ls -Fal --color'
     alias info=pinfo
     ;;
