@@ -8,8 +8,6 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Install some Vundles
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'rodjek/vim-puppet'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
