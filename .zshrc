@@ -56,7 +56,7 @@ EDITOR=vim
 ## per-OS settings
 case $(uname) in
   Darwin)
-    if command -v nvim > /de/null ; then
+    if command -v nvim > /dev/null ; then
         export EDITOR=nvim
         alias vim=nvim
     else
