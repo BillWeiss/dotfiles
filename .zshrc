@@ -11,8 +11,13 @@ plugins=(
     nmap
     python
     pyenv
-    tmux
 )
+
+## turns out I don't have tmux everywhere!
+if command -v tmux > /dev/null
+then
+    plugins+=(tmux)
+fi
 
 # figure out which plugins to use, per-OS and distro
 case $(uname) in
@@ -60,8 +65,10 @@ case $(uname) in
         export EDITOR=nvim
         alias vim=nvim
     else
-        export EDITOR='mvim -f -c "au VimLeave * !open -a Terminal"'
-        alias vim=mvim
+        if command -v mvim > /dev/null ; then
+            export EDITOR='mvim -f -c "au VimLeave * !open -a Terminal"'
+            alias vim=mvim
+        fi
     fi
 
     alias ll='ls -FalG'
