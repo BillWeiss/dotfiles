@@ -129,8 +129,6 @@ alias vi="vim"
 alias today="date +%Y%m%d"
 alias screen='screen -U'
 
-command -v bat > /dev/null 2>&1 && export PAGER=bat
-
 ## make rvm work
 [[ -s ~/.rvm/scripts/rvm ]] && source ~/.rvm/scripts/rvm
 
