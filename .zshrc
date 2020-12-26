@@ -100,6 +100,7 @@ case $(uname) in
     fi
     alias ll='ls -Fal --color'
     alias info=pinfo
+    addpath /usr/sbin
     ;;
   *)
     # don't do anything, we've already complained above about an unsupported OS
