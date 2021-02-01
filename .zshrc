@@ -61,15 +61,15 @@ EDITOR=vim
 ## per-OS settings
 case $(uname) in
   Darwin)
-    if command -v nvim > /dev/null ; then
-        export EDITOR=nvim
-        alias vim=nvim
-    else
+#    if command -v nvim > /dev/null ; then
+#        export EDITOR=nvim
+#        alias vim=nvim
+#    else
         if command -v mvim > /dev/null ; then
             export EDITOR='mvim -f -c "au VimLeave * !open -a Terminal"'
             alias vim=mvim
         fi
-    fi
+#    fi
 
     alias ll='ls -FalG'
     alias brewup='brew update && brew upgrade && brew upgrade --cask && brew cleanup'
