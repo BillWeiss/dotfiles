@@ -2,6 +2,7 @@
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_THEME="gentoo"
 export COMPLETION_WAITING_DOTS="true"
+export ZSH_DISABLE_COMPFIX=true
 export DISABLE_UPDATE_PROMPT=true
 plugins=(
     compleat
