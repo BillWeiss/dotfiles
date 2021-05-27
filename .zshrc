@@ -79,7 +79,7 @@ case $(uname) in
     }
 
     # Homebrew nonsense
-    addpath /usr/local/sbin /usr/local/bin
+    addpath /usr/local/sbin /usr/local/bin /opt/homebrew/bin
 
     # make sure touch ID is on for sudo
     # OS upgrades unset this sometimes
