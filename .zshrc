@@ -11,7 +11,6 @@ plugins=(
     mosh
     nmap
     python
-    pyenv
 )
 
 ## turns out I don't have tmux everywhere!
