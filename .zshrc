@@ -53,7 +53,7 @@ addpath () {
 # ones that virtualenvwrapper installs
 addpath ~/bin ~/.local/sbin ~/.local/bin
 
-source $ZSH/oh-my-zsh.sh
+[[ -s $ZSH/oh-my-zsh.sh ]] && source $ZSH/oh-my-zsh.sh
 
 ## sane defaults in case per-OS settings don't match
 EDITOR=vim
