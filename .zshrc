@@ -13,6 +13,11 @@ plugins=(
     python
 )
 
+## tired of retyping this
+sourceif () {
+  [[ -s $1 ]] && source $1
+}
+
 ## turns out I don't have tmux everywhere!
 if command -v tmux > /dev/null
 then
@@ -53,7 +58,7 @@ addpath () {
 # ones that virtualenvwrapper installs
 addpath ~/bin ~/.local/sbin ~/.local/bin
 
-[[ -s $ZSH/oh-my-zsh.sh ]] && source $ZSH/oh-my-zsh.sh
+sourceif $ZSH/oh-my-zsh.sh
 
 ## sane defaults in case per-OS settings don't match
 EDITOR=vim
@@ -135,14 +140,14 @@ alias today="date +%Y%m%d"
 alias screen='screen -U'
 
 ## make rvm work
-[[ -s ~/.rvm/scripts/rvm ]] && source ~/.rvm/scripts/rvm
+sourceif ~/.rvm/scripts/rvm
 
 ## if there's a go dir, assume it's my GOPATH
 [[ -d $HOME/go ]] && export GOPATH=$HOME/go && addpath $HOME/go/bin
 
 ## local-only aliases
-[[ -s ~/.zshrc-local ]] && source ~/.zshrc-local
+sourceif ~/.zshrc-local
 
 ## this sucks, but something about the system ssh-agent on my Mac and gpg-agent
 #  isn't playing well together.  Workaround so I can do work.
-[[ -s ~/.gnupg/gpg-agent.env ]] && source ~/.gnupg/gpg-agent.env
+sourceif ~/.gnupg/gpg-agent.env
