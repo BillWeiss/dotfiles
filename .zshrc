@@ -27,7 +27,7 @@ fi
 # figure out which plugins to use, per-OS and distro
 case $(uname) in
   Darwin)
-    plugins+=(aws osx)
+    plugins+=(aws macos)
     ;;
   Linux)
     plugins+=(ssh-agent)
