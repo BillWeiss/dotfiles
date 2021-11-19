@@ -1,0 +1,4 @@
+# Compatibility with my old zshrc, until I get things figured out
+[[ -s ~/.zshrc-dotfiles ]] && source ~/.zshrc-dotfiles
+
+eval "$(starship init zsh)"
