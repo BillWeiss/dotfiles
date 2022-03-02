@@ -19,6 +19,7 @@ Plugin 'elzr/vim-json'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'MaxMEllon/vim-jsx-pretty'
 Plugin 'cespare/vim-toml'
+Plugin 'jvirtanen/vim-hcl'
 
 " Don't do any Vundling after this
 call vundle#end()
