@@ -1,52 +1,7 @@
-## set up oh-my-zsh
-export ZSH=$HOME/.oh-my-zsh
-export ZSH_THEME="gentoo"
-export COMPLETION_WAITING_DOTS="true"
-export ZSH_DISABLE_COMPFIX=true
-export DISABLE_UPDATE_PROMPT=true
-plugins=(
-    compleat
-    git
-    github
-    mosh
-    nmap
-    python
-)
-
 ## tired of retyping this
 sourceif () {
   [[ -s $1 ]] && source $1
 }
-
-## turns out I don't have tmux everywhere!
-if command -v tmux > /dev/null
-then
-    plugins+=(tmux)
-fi
-
-# figure out which plugins to use, per-OS and distro
-case $(uname) in
-  Darwin)
-    plugins+=(aws macos)
-    ;;
-  Linux)
-    plugins+=(ssh-agent)
-    case $( grep -E '^ID=' /etc/os-release | awk -F= '{print $2}' ) in
-      raspbian|debian)
-        plugins+=(debian)
-        ;;
-      ubuntu)
-        plugins+=(ubuntu)
-        ;;
-      *)
-        echo "I seem to be on an unexpected distro!"
-        ;;
-    esac
-    ;;
-  *)
-    echo "I seem to be on an unexpected OS!"
-    ;;
-esac
 
 addpath () {
   for pathentry in "$@" ; do
@@ -54,11 +9,7 @@ addpath () {
   done
 }
 
-# do this before starting oh-my-zsh so it can find local binaries (like the
-# ones that virtualenvwrapper installs
 addpath ~/bin ~/.local/sbin ~/.local/bin
-
-sourceif $ZSH/oh-my-zsh.sh
 
 ## sane defaults in case per-OS settings don't match
 EDITOR=vim
@@ -66,15 +17,10 @@ EDITOR=vim
 ## per-OS settings
 case $(uname) in
   Darwin)
-#    if command -v nvim > /dev/null ; then
-#        export EDITOR=nvim
-#        alias vim=nvim
-#    else
-        if command -v mvim > /dev/null ; then
-            export EDITOR='mvim -f -c "au VimLeave * !open -a Terminal"'
-            alias vim=mvim
-        fi
-#    fi
+    if command -v mvim > /dev/null ; then
+        export EDITOR='mvim -f -c "au VimLeave * !open -a Terminal"'
+        alias vim=mvim
+    fi
 
     alias ll='ls -FalG'
     alias brewup='brew update && brew upgrade && brew upgrade --cask && brew cleanup'
@@ -83,7 +29,7 @@ case $(uname) in
     }
 
     # Homebrew nonsense
-    addpath /usr/local/sbin /usr/local/bin /opt/homebrew/bin
+    addpath /usr/local/sbin /usr/local/bin /opt/homebrew/bin /opt/homebrew/sbin
 
     # make sure touch ID is on for sudo
     # OS upgrades unset this sometimes
@@ -102,11 +48,6 @@ case $(uname) in
             fi
         fi
     fi
-
-
-    # yubikey-agent from Filo
-    [[ -S /usr/local/var/run/yubikey-agent.sock ]] && \
-        export SSH_AUTH_SOCK="/usr/local/var/run/yubikey-agent.sock"
 
     ;;
   Linux)
