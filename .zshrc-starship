@@ -1,9 +1,6 @@
 # Compatibility with my old zshrc, until I get things figured out
 [[ -s ~/.zshrc-dotfiles ]] && source ~/.zshrc-dotfiles
 
-# Local-to-this-machine configuration (such as work-specific code)
-[[ -s ~/.zshrc-local ]] && source ~/.zshrc-local
-
 eval "$(starship init zsh)"
 
 autoload -Uz compinit && compinit
