@@ -1,5 +1,7 @@
 sourceif () {
-  [[ -s $1 ]] && source $1
+  for sourcefile in "$@" ; do
+    [[ -s "${sourcefile}" ]] && source "${sourcefile}"
+  done
 }
 
 addpath () {
@@ -92,8 +94,8 @@ sourceif ~/.rvm/scripts/rvm
 [[ -d $HOME/go ]] && export GOPATH=$HOME/go && addpath $HOME/go/bin
 
 # fzf in ZSH things
-sourceif /opt/homebrew/opt/fzf/shell/completion.zsh
-sourceif /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+sourceif /opt/homebrew/opt/fzf/shell/completion.zsh /usr/share/doc/fzf/examples/completion.zsh
+sourceif /opt/homebrew/opt/fzf/shell/key-bindings.zsh /usr/share/doc/fzf/examples/key-bindings.zsh
 
 ## local-only aliases
 sourceif ~/.zshrc-local
