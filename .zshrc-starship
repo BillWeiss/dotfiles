@@ -69,6 +69,8 @@ esac
 # This has to come after all the OS-specific PATH wrangling so it can be found
 if command -v starship &> /dev/null ; then
     eval "$(starship init zsh)"
+else
+    echo "No starship found in path :(" >&2
 fi
 
 export HISTFILE=~/.zsh_history
