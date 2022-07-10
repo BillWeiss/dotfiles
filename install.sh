@@ -14,13 +14,9 @@ function installIfNotPresent() {
     fi
 }
 
-for f in .screenrc .tmux.conf .vimrc .vim ; do
+for f in .screenrc .tmux.conf .vimrc .vim .zshrc ; do
     installIfNotPresent "$f"
 done
-
-# clean this nonsense up later since I seem to be sticking with starship
-installIfNotPresent .zshrc-starship .zshrc
-installIfNotPresent .zshrc .zshrc-dotfiles
 
 mkdir -p ~/.config
 installIfNotPresent starship.toml .config/starship.toml
