@@ -57,11 +57,13 @@ set ruler
 set backspace=indent,eol,start
 
 " Solarized colorscheme
-" all my terminals are 256-color safe, it's 2020
-let g:solarized_termcolors=256
-" my terminals are frequently transparent, support that
-let g:solarized_termtrans=1
-colorscheme solarized
+if filereadable(expand("\~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
+    " all my terminals are 256-color safe, it's 2020
+    let g:solarized_termcolors=256
+    " my terminals are frequently transparent, support that
+    let g:solarized_termtrans=1
+    colorscheme solarized
+endif
 
 " read a .viminfo file on start, remember 100 files, store filemarks
 set viminfo='100,f1
