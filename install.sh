@@ -20,3 +20,11 @@ done
 
 mkdir -p ~/.config
 installIfNotPresent starship.toml .config/starship.toml
+
+if [ ! -d ~/".vim/bundle/Vundle.vim" ] ; then
+    mkdir -p ~/".vim/bundle/"
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    vim +PluginInstall +qall
+elif [ -e ~/".vim/bundle/Vundle.vim" ] ; then
+    echo ~/".vim/bundle/Vundle.vim exists and is not a directory??" >&2
+fi
