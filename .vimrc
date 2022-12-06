@@ -113,6 +113,8 @@ if has("autocmd")
 
  au BufNewFile,BufRead *.pp set ts=2 et sw=2 sts=2 filetype=puppet
 
+ autocmd FileType yaml set ts=2 sts=2
+
 endif " has("autocmd")
 
 " spellchecking on, in US english
