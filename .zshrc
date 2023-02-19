@@ -52,7 +52,7 @@ case $(uname) in
     # support a Secure Enclave-backed SSH key
     [ -S ~/.sekey/ssh-agent.ssh ] && export SSH_AUTH_SOCK=~/.sekey/ssh-agent.ssh 
     ;;
-  Linux)
+  Linux|FreeBSD)
     if command -v nvim > /dev/null ; then
         export EDITOR=nvim
         alias vim=nvim
