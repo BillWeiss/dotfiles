@@ -92,26 +92,25 @@ if has("autocmd")
   "   For C and C++ files set formatting of comments and set C-indenting on
   "   For other files switch it off.
   "   Don't change the order, it's important that the line with * comes first
-  "   For HTML, treat <(stuff)> as comment for formatting
   autocmd FileType *      set formatoptions=tcql nocindent comments&
   autocmd FileType c,cpp  set formatoptions=croql cindent
-  	\comments=sr:/*,mb:*,el:*/,://
-  autocmd FileType html   set formatoptions=tcql comments=s:<,e:>
-  	\sts=2 ts=2 shiftwidth=2 expandtab
-  autocmd FileType xhtml  set formatoptions=tcql comments=s:<,e:>
-  	\sts=2 ts=2 shiftwidth=2 expandtab
-  autocmd FileType sh     set makeprg=shellcheck\ -f\ gcc\ %
+    \ comments=sr:/*,mb:*,el:*/,://
  augroup END
 
- au BufNewFile,BufRead /tmp/mutt* set syntax=mail filetype=mail
- au BufNewFile,BufRead /tmp/mutt* normal :g/^> -- $/,/^$/-1d/^$
- au BufNewFile,BufRead draft_* set syntax=xhtml filetype=xhtml
+ autocmd FileType html   set formatoptions=tcql comments=s:<,e:>
+    \ sts=2 ts=2 shiftwidth=2 expandtab
+ autocmd FileType xhtml  set formatoptions=tcql comments=s:<,e:>
+    \ sts=2 ts=2 shiftwidth=2 expandtab
+
+ autocmd BufNewFile,BufRead /tmp/mutt* set syntax=mail filetype=mail
+ autocmd BufNewFile,BufRead /tmp/mutt* normal :g/^> -- $/,/^$/-1d/^$
+ autocmd BufNewFile,BufRead draft_* set syntax=xhtml filetype=xhtml
 
  " Markdown likewise doesn't appreciate hard-newlines in files
  autocmd BufRead *.markdown set tw=0
  autocmd BufRead *.md set tw=0
 
- au BufNewFile,BufRead *.pp set ts=2 et sw=2 sts=2 filetype=puppet
+ autocmd BufNewFile,BufRead *.pp set ts=2 et sw=2 sts=2 filetype=puppet
 
  autocmd FileType yaml set ts=2 sts=2
 
