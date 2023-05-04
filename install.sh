@@ -8,9 +8,8 @@ function installIfNotPresent() {
     fi
 
     if [ ! -e ~/"$dst" ] ; then
+        echo "Installing ${src} to ~/${dst}"
         ln -s "$(pwd)/$src" ~/"$dst"
-    else
-        echo ~/"$dst found, not overwriting" >&2
     fi
 }
 
