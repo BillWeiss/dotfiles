@@ -138,3 +138,7 @@ endif " has ("gui_running")
 " Do some terraform magic
 let g:terraform_align=1
 let g:terraform_fmt_on_save=1
+
+" This makes pylint use the local python (so it works in a venv)
+let g:syntastic_python_python_exec = 'python3'
+let g:syntastic_python_checkers = ['python']
