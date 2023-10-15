@@ -4,6 +4,5 @@ command_timeout = 1000
 [character]
 success_symbol = "[➜](bold green)"
 
-[[battery.display]]
-threshold = 30
-style = "bold red"
+[battery]
+disabled = true
