@@ -10,6 +10,15 @@ addpath () {
   done
 }
 
+touchidcheck () {
+    if [ -f "$1" ] ; then
+        egrep -q '^auth *sufficient *pam_tid.so$' "$1" || \
+            echo "TouchID settings not in PAM for sudo\n" \
+                 "Put this line into $1 up top:\n" \
+                 "auth       sufficient     pam_tid.so" >&2
+    fi
+}
+
 addpath ~/bin ~/.local/sbin ~/.local/bin
 
 autoload -Uz compinit && compinit
@@ -41,10 +50,11 @@ case $(uname) in
         if [[ "$numPrints" -gt 0 ]] ; then
             touchUnlock=$(/usr/bin/bioutil -r | grep unlock | tail -n 1 | awk '{print $NF}')
             if [[ "$touchUnlock" -gt 0 ]] ; then
-                egrep -q '^auth *sufficient *pam_tid.so$' /etc/pam.d/sudo || \
-                    echo "TouchID settings not in PAM for sudo\n" \
-                         "Put this line into /etc/pam.d/sudo up top:\n" \
-                         "auth       sufficient     pam_tid.so" >&2
+                if [ -f /etc/pam.d/sudo_local ] ; then
+                    touchidcheck /etc/pam.d/sudo_local
+                else
+                    touchidcheck /etc/pam.d/sudo
+                fi
             fi
         fi
     fi
