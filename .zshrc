@@ -111,3 +111,9 @@ sourceif /opt/homebrew/opt/fzf/shell/key-bindings.zsh /usr/share/doc/fzf/example
 
 ## local-only aliases
 sourceif ~/.zshrc-local
+
+# 1password integration
+if command -v op &> /dev/null ; then
+    eval "$(op completion zsh)"
+    compdef _op op
+fi
