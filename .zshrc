@@ -59,8 +59,15 @@ case $(uname) in
         fi
     fi
 
-    # support a Secure Enclave-backed SSH key
-    [ -S ~/.sekey/ssh-agent.ssh ] && export SSH_AUTH_SOCK=~/.sekey/ssh-agent.ssh 
+    # we have a couple of options for SSH agents: 1password, sekey
+    # If the socket is there, use it
+    if [ -S ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock ]
+    then
+        export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+    elif [ -S ~/.sekey/ssh-agent.ssh ]
+    then
+        export SSH_AUTH_SOCK=~/.sekey/ssh-agent.ssh
+    fi
     ;;
   Linux|FreeBSD)
     if command -v nvim > /dev/null ; then
