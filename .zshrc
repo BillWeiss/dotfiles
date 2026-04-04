@@ -93,6 +93,7 @@ fi
 export HISTFILE=~/.zsh_history
 export HISTSIZE=1000
 export SAVEHIST=2000
+setopt HIST_IGNORE_SPACE
 export VISUAL=$EDITOR
 export GIT_EDITOR=$EDITOR
 export LANG=en_US.utf-8
