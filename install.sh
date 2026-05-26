@@ -21,7 +21,7 @@ mkdir -p ~/.config
 installIfNotPresent starship.toml .config/starship.toml
 
 mkdir -p ~/.config/nvim
-installIfNotPresent nvim-init.vim .config/nvim/init.vim
+installIfNotPresent nvim-init.lua .config/nvim/init.lua
 
 if [ ! -e ~/".vim/bundle/Vundle.vim" ] ; then
     mkdir -p ~/".vim/bundle/"
