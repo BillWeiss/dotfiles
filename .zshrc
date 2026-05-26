@@ -24,16 +24,16 @@ addpath ~/bin ~/.local/sbin ~/.local/bin
 autoload -Uz compinit && compinit
 
 ## sane defaults in case per-OS settings don't match
-EDITOR=vim
+if command -v nvim > /dev/null ; then
+    export EDITOR=nvim
+    alias vim=nvim
+else
+    export EDITOR=vim
+fi
 
 ## per-OS settings
 case $(uname) in
   Darwin)
-    if command -v mvim > /dev/null ; then
-        export EDITOR='mvim -f -c "au VimLeave * !open -a Terminal"'
-        alias vim=mvim
-    fi
-
     alias ll='ls -FalG'
     alias brewup='brew update && brew upgrade && brew upgrade --cask && brew cleanup'
 
@@ -70,10 +70,6 @@ case $(uname) in
     fi
     ;;
   Linux|FreeBSD)
-    if command -v nvim > /dev/null ; then
-        export EDITOR=nvim
-        alias vim=nvim
-    fi
     alias ll='ls -Fal --color'
     alias info=pinfo
     addpath /usr/sbin

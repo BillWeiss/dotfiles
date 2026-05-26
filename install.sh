@@ -20,6 +20,9 @@ done
 mkdir -p ~/.config
 installIfNotPresent starship.toml .config/starship.toml
 
+mkdir -p ~/.config/nvim
+installIfNotPresent nvim-init.vim .config/nvim/init.vim
+
 if [ ! -e ~/".vim/bundle/Vundle.vim" ] ; then
     mkdir -p ~/".vim/bundle/"
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
