@@ -59,3 +59,9 @@ vim.opt.spell = true
 vim.opt.spelllang = "en_us"
 
 vim.o.laststatus = 2
+
+-- we don't need a bunch of languages here
+vim.cmd("let g:loaded_node_provider = 0")
+vim.cmd("let g:loaded_perl_provider = 0")
+vim.cmd("let g:loaded_python3_provider = 0")
+vim.cmd("let g:loaded_ruby_provider = 0")
