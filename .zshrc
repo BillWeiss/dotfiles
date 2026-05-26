@@ -1,3 +1,4 @@
+## Function definitions go up here
 sourceif () {
   for sourcefile in "$@" ; do
     [[ -s "${sourcefile}" ]] && source "${sourcefile}"
@@ -18,7 +19,10 @@ touchidcheck () {
                  "auth       sufficient     pam_tid.so" >&2
     fi
 }
+## End of function definitions
 
+## This section is for setup before we do anything OS-specific
+#  Keep it light, plz
 addpath ~/bin ~/.local/sbin ~/.local/bin
 
 autoload -Uz compinit && compinit
@@ -30,6 +34,7 @@ if command -v nvim > /dev/null ; then
 else
     export EDITOR=vim
 fi
+## End of setup
 
 ## per-OS settings
 case $(uname) in
@@ -67,6 +72,7 @@ case $(uname) in
     elif [ -S ~/.sekey/ssh-agent.ssh ]
     then
         export SSH_AUTH_SOCK=~/.sekey/ssh-agent.ssh
+        echo "Hey, sekey isn't supported anymore, figure out what to do here" >&2
     fi
     ;;
   Linux|FreeBSD)
@@ -78,8 +84,10 @@ case $(uname) in
     echo "Unsupported OS $(uname), not sure what to do to customize" >&2
     ;;
 esac
+## End per-OS stuff
 
-# This has to come after all the OS-specific PATH wrangling so it can be found
+## Now that all the per-OS setup is done, do common things
+
 if command -v starship &> /dev/null ; then
     eval "$(starship init zsh)"
 else
