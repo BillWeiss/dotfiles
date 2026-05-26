@@ -25,8 +25,6 @@ touchidcheck () {
 #  Keep it light, plz
 addpath ~/bin ~/.local/sbin ~/.local/bin
 
-autoload -Uz compinit && compinit
-
 ## End setup section
 
 ## per-OS settings
@@ -66,6 +64,11 @@ case $(uname) in
     then
         export SSH_AUTH_SOCK=~/.sekey/ssh-agent.ssh
         echo "Hey, sekey isn't supported anymore, figure out what to do here" >&2
+    fi
+
+    if type brew &>/dev/null; then
+        FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+        eval "$(brew shellenv)"
     fi
     ;;
   Linux|FreeBSD)
@@ -117,6 +120,9 @@ alias screen='screen -U'
 # fzf in ZSH things
 sourceif /opt/homebrew/opt/fzf/shell/completion.zsh /usr/share/doc/fzf/examples/completion.zsh
 sourceif /opt/homebrew/opt/fzf/shell/key-bindings.zsh /usr/share/doc/fzf/examples/key-bindings.zsh
+
+# Do compinit last after things are loaded
+autoload -Uz compinit && compinit
 
 ## local-only aliases
 sourceif ~/.zshrc-local
