@@ -75,7 +75,7 @@ case $(uname) in
     addpath /usr/sbin
     ;;
   *)
-    # don't do anything, we've already complained above about an unsupported OS
+    echo "Unsupported OS $(uname), not sure what to do to customize" >&2
     ;;
 esac
 
