@@ -27,14 +27,7 @@ addpath ~/bin ~/.local/sbin ~/.local/bin
 
 autoload -Uz compinit && compinit
 
-## sane defaults in case per-OS settings don't match
-if command -v nvim > /dev/null ; then
-    export EDITOR=nvim
-    alias vim=nvim
-else
-    export EDITOR=vim
-fi
-## End of setup
+## End setup section
 
 ## per-OS settings
 case $(uname) in
@@ -92,6 +85,13 @@ if command -v starship &> /dev/null ; then
     eval "$(starship init zsh)"
 else
     echo "No starship found in path :(" >&2
+fi
+
+if command -v nvim > /dev/null ; then
+    export EDITOR=nvim
+    alias vim=nvim
+else
+    export EDITOR=vim
 fi
 
 export HISTFILE=~/.zsh_history
