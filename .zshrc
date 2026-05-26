@@ -103,9 +103,6 @@ alias vi="vim"
 alias today="date +%Y%m%d"
 alias screen='screen -U'
 
-## make rvm work
-sourceif ~/.rvm/scripts/rvm
-
 ## if there's a go dir, assume it's my GOPATH
 [[ -d $HOME/go ]] && export GOPATH=$HOME/go && addpath $HOME/go/bin
 
