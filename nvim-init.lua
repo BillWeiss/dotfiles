@@ -1,3 +1,4 @@
+-- From here to END is the lazy.nvim install straight from their docs
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -14,6 +15,12 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
+-- END lazy.vim install
+
+-- Install some plugins
 require("lazy").setup({
     "editorconfig/editorconfig-vim",
     "maxmx03/solarized.nvim",
@@ -22,6 +29,7 @@ require("lazy").setup({
     "dense-analysis/ale",
 })
 
+-- Now just set vim things
 vim.o.compatible = false
 vim.o.title = true
 vim.o.background = "dark"
@@ -51,4 +59,3 @@ vim.opt.spell = true
 vim.opt.spelllang = "en_us"
 
 vim.o.laststatus = 2
-
