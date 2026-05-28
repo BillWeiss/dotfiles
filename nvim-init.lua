@@ -27,6 +27,9 @@ require("lazy").setup({
     "vim-airline/vim-airline",
     "vim-airline/vim-airline-themes",
     "dense-analysis/ale",
+    "tree-sitter/tree-sitter-json",
+    "tree-sitter-grammars/tree-sitter-yaml",
+    "Hdoc1509/gh-actions.nvim",
 })
 
 -- Now just set vim things
@@ -56,7 +59,7 @@ vim.o.wildmenu = true
 vim.o.wildmode = "list:longest,full"
 
 vim.opt.spell = true
-vim.opt.spelllang = "en_us"
+vim.opt.spelllang = {"en_us"}
 
 vim.o.laststatus = 2
 
