@@ -30,6 +30,7 @@ require("lazy").setup({
     "tree-sitter/tree-sitter-json",
     "tree-sitter-grammars/tree-sitter-yaml",
     "Hdoc1509/gh-actions.nvim",
+    "yonatanperel/lake-dweller.nvim",
 })
 
 -- Now just set vim things
@@ -62,6 +63,14 @@ vim.opt.spell = true
 vim.opt.spelllang = {"en_us"}
 
 vim.o.laststatus = 2
+
+-- try out lake-dweller colorscheme
+require("lake-dweller").setup({
+    variant = "ocean-dweller", -- this is the darkest version
+    transparent = false,
+    italics = true,
+    float_background = false,
+})
 
 -- we don't need a bunch of languages here
 vim.cmd("let g:loaded_node_provider = 0")
